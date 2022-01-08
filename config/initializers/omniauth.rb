@@ -1,5 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :github, Rails.application.credentials.github[:key], Rails.application.credentials.github[:secret]
-    provider :google_oauth2, Rails.application.credentials.google[:key], Rails.application.credentials.google[:secret]
+    provider :github, ENV['GIT_KEY'], ENV['GIT_SECRET']
+    provider :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET']
 end
-OmniAuth.config.allowed_request_methods = %i[get]
